@@ -6,7 +6,7 @@ const Champion = (props) => {
 {/* Start: Champion */}
 <div>
     <button className="btn add-champion text-white" type="button">+</button>
-    <img className="champion" src="https://i.pinimg.com/originals/bf/ca/5d/bfca5df62dc3ade0416849a26b333f5b.png" />
+    <img className="champion" src="https://i.pinimg.com/originals/bf/ca/5d/bfca5df62dc3ade0416849a26b333f5b.png" alt="champion img"/>
     <h1 className="text-center text-white">{props.role}</h1>
 </div>
 {/* End: Champion */}
