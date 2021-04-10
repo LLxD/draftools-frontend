@@ -8,7 +8,7 @@ function App() {
     <div>
         <Navbar/>
         <Teams/>
-        <Search/>
+        <Search role="ADC:"/>
     </div>
   );
 }
