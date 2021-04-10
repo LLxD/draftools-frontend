@@ -10,10 +10,12 @@ body {
 .blue-side {
     background: #000835;
     padding: 15px 0;
+    transition: 1s;
 }
 .red-side {
     background: #670000;
     padding: 15px 0;
+    transition: 1s;
 }
 .add-champion {
     position: absolute;
@@ -61,8 +63,10 @@ p {
 
 .red-side:hover{
     background-color:#A70101;
+    transition: 1s;
 }
 
 .blue-side:hover{
     background-color: #021A9B;
+    transition: 1s;
 }
