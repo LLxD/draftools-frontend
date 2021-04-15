@@ -4,12 +4,13 @@ const ChampionIcon = (props) => {
 
 let nome = props.nome;
 let tags = props.tags;
+let img = props.img
 
     return (
           <div className="col-2 mt-4">
-<div class="d-flex flex-column justify-content-center align-items-center">
+<div className="d-flex flex-column justify-content-center align-items-center">
     <h5>{nome}</h5>
-            <img src="https://1.bp.blogspot.com/-R5ozICNl7AY/Xd2iaJ1x8wI/AAAAAAABb1c/Lkeeq4TPd7c7Hn2ThLeJe1fDE8dq5p2LgCLcBGAsYHQ/s1600/523.png" alt="champion-icon" class="champion-icon"/>
+            <img src={img} alt="champion-icon" className="champion-icon"/>
     <h5>{tags}</h5>
         </div>
         </div>
