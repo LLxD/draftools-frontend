@@ -3,6 +3,7 @@ import Teams from './components/Teams'
 import ChampionList from './components/ChampionList'
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import {DndContext} from '@dnd-kit/core';
 
 
 
@@ -24,6 +25,7 @@ function App() {
 
 
   const addChampion = (champion, team) => {
+    console.log("TESTE")
     switch (team) {
       case 'blueTeam':
         if (blueTeam.length < 5) setBlueTeam([...blueTeam, champion]);
@@ -39,9 +41,12 @@ function App() {
 
   return (
     <div>
+        <button onClick={addChampion("PANTHEON",blueTeam)}></button>
         <Navbar/>
+        <DndContext onDragEnd={addChampion()}>
         <Teams blueTeam={blueTeam} redTeam={redTeam}/>
         <ChampionList champions={champions} addChampion={addChampion} name={champions.name} role="ADC:"/>
+        </DndContext>
     </div>
   );
 }
