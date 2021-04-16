@@ -11,17 +11,21 @@ body {
     background: #000835;
     padding: 15px 0;
     transition: 1s;
+        min-width: 400px;
+    min-height: 420px;
 }
 .red-side {
     background: #670000;
     padding: 15px 0;
     transition: 1s;
+    min-width: 400px;
+    min-height: 420px;
 }
-.add-champion {
+.remove-champion {
     position: absolute;
-    margin-top: 110px;
-    margin-left: 52px;
-    font-size: 48px;
+    margin-top: 2px;
+    margin-left: 102px;
+    font-size: 30px;
 }
 .champion {
     width: 150px;
@@ -59,6 +63,7 @@ p {
 .champion-icon{
     width: 80px;
     height: 80px;
+    cursor:  grab;
 }
 
 .red-side:hover{
