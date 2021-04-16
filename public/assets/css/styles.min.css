@@ -11,11 +11,15 @@ body {
     background: #000835;
     padding: 15px 0;
     transition: 1s;
+        min-width: 400px;
+    min-height: 420px;
 }
 .red-side {
     background: #670000;
     padding: 15px 0;
     transition: 1s;
+    min-width: 400px;
+    min-height: 420px;
 }
 .add-champion {
     position: absolute;

@@ -7,10 +7,20 @@ function ChampionIcon(props) {
     let tags = props.tags;
     let img = props.img;
 
-    const [{ isDragging }, drag, dragPreview] = useDrag(() => ({
-        type: 'CHAMPION', nome: { nome }, img: { img },
-        // The collect function utilizes a "monitor" instance (see the Overview for what this is)
-        // to pull important pieces of state from the DnD system.
+    const [{ isDragging }, drag] = useDrag(() => ({
+        type: 'CHAMPION',
+        item: {
+            nome,
+            img,
+            tags,
+        },
+
+        end: (item, monitor) => {
+            const dropResult = monitor.getDropResult();
+            if (item && dropResult) {
+                props.addChampion(item, dropResult.target);
+            }
+        },
         collect: (monitor) => ({
             isDragging: monitor.isDragging()
         })

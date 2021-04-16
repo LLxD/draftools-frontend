@@ -27,11 +27,11 @@ function App() {
 
     const addChampion = (champion, team) => {
         switch (team) {
-            case 'blueTeam':
-                if (blueTeam.length < 5) setBlueTeam([...blueTeam, champion]);
+            case 'blue':
+                setBlueTeam(blueTeam => blueTeam.length < 5 ? ([...blueTeam, champion]) : (blueTeam));
                 break;
-            case 'redTeam':
-                if (redTeam.length < 5) setRedTeam([...redTeam, champion]);
+            case 'red':
+                setRedTeam(redTeam => redTeam.length < 5 ? ([...redTeam, champion]) : (redTeam));
                 break;
             default:
                 break;
@@ -39,13 +39,13 @@ function App() {
     };
 
 
+
     return (
         <div>
             <Navbar />
             <DndProvider backend={HTML5Backend}>
-                {/* A variavel aqui esta hardcoded, como fazer a adicao dinamica sendo que a funcao eh chamada antes? */}
-                <Teams blueTeam={blueTeam} redTeam={redTeam} onDrop={(champion) => addChampion(champion, 'redTeam')} />
-                <ChampionList champions={champions} name={champions.name} />
+                <Teams blueTeam={blueTeam} redTeam={redTeam} />
+                <ChampionList addChampion={addChampion} champions={champions} name={champions.name} />
             </DndProvider>
         </div>
     );
