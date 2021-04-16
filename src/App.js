@@ -39,18 +39,17 @@ function App() {
     };
 
 
-    const removeChampion = (champion, team) => {
-        console.log("TOP")
-        // switch (team) {
-        //     case 'blue':
-        //         setBlueTeam(blueTeam => blueTeam.length < 5 ? ([...blueTeam, champion]) : (blueTeam));
-        //         break;
-        //     case 'red':
-        //         setRedTeam(redTeam => redTeam.length < 5 ? ([...redTeam, champion]) : (redTeam));
-        //         break;
-        //     default:
-        //         break;
-        // }
+    const removeChampion = (index, team) => {
+        switch (team) {
+            case 'blue':
+                setBlueTeam(blueTeam => blueTeam.filter((champ, i) => i !== index));
+                break;
+            case 'red':
+                setRedTeam(redTeam => redTeam.filter((champ, i) => i !== index));
+                break;
+            default:
+                break;
+        }
     };
 
 
