@@ -59,6 +59,7 @@ p {
 .champion-icon{
     width: 80px;
     height: 80px;
+    cursor:  grab;
 }
 
 .red-side:hover{

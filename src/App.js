@@ -3,52 +3,52 @@ import Teams from './components/Teams'
 import ChampionList from './components/ChampionList'
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import {DndContext} from '@dnd-kit/core';
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
 
 
 
 function App() {
 
-  const [blueTeam, setBlueTeam] = useState([]);
-  const [redTeam, setRedTeam] = useState([]);
-  const [champions, setChampions] = useState([]);
+    const [blueTeam, setBlueTeam] = useState([]);
+    const [redTeam, setRedTeam] = useState([]);
+    const [champions, setChampions] = useState([]);
 
-  const loadChampions = () => {
-    axios.get('https://jsonplaceholder.typicode.com/photos').then((response) => {
-      setChampions(response.data);
-    });
-  };
+    const loadChampions = () => {
+        axios.get('https://jsonplaceholder.typicode.com/photos').then((response) => {
+            setChampions(response.data);
+        });
+    };
 
-  useEffect(() => {
-    loadChampions();
-  }, []);
-
-
-  const addChampion = (champion, team) => {
-    console.log("TESTE")
-    switch (team) {
-      case 'blueTeam':
-        if (blueTeam.length < 5) setBlueTeam([...blueTeam, champion]);
-        break;
-      case 'redTeam':
-        if (redTeam.length < 5) setRedTeam([...redTeam, champion]);
-        break;
-      default:
-        break;
-    }
-  };
+    useEffect(() => {
+        loadChampions();
+    }, []);
 
 
-  return (
-    <div>
-        <button onClick={addChampion("PANTHEON",blueTeam)}></button>
-        <Navbar/>
-        <DndContext onDragEnd={addChampion()}>
-        <Teams blueTeam={blueTeam} redTeam={redTeam}/>
-        <ChampionList champions={champions} addChampion={addChampion} name={champions.name} role="ADC:"/>
-        </DndContext>
-    </div>
-  );
+    const addChampion = (champion, team) => {
+        switch (team) {
+            case 'blueTeam':
+                if (blueTeam.length < 5) setBlueTeam([...blueTeam, champion]);
+                break;
+            case 'redTeam':
+                if (redTeam.length < 5) setRedTeam([...redTeam, champion]);
+                break;
+            default:
+                break;
+        }
+    };
+
+
+    return (
+        <div>
+            <Navbar />
+            <DndProvider backend={HTML5Backend}>
+                {/* A variavel aqui esta hardcoded, como fazer a adicao dinamica sendo que a funcao eh chamada antes? */}
+                <Teams blueTeam={blueTeam} redTeam={redTeam} onDrop={(champion) => addChampion(champion, 'redTeam')} />
+                <ChampionList champions={champions} name={champions.name} />
+            </DndProvider>
+        </div>
+    );
 }
 
 export default App;
