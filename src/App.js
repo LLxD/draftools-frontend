@@ -39,12 +39,27 @@ function App() {
     };
 
 
+    const removeChampion = (champion, team) => {
+        console.log("TOP")
+        // switch (team) {
+        //     case 'blue':
+        //         setBlueTeam(blueTeam => blueTeam.length < 5 ? ([...blueTeam, champion]) : (blueTeam));
+        //         break;
+        //     case 'red':
+        //         setRedTeam(redTeam => redTeam.length < 5 ? ([...redTeam, champion]) : (redTeam));
+        //         break;
+        //     default:
+        //         break;
+        // }
+    };
+
+
 
     return (
         <div>
             <Navbar />
             <DndProvider backend={HTML5Backend}>
-                <Teams blueTeam={blueTeam} redTeam={redTeam} />
+                <Teams blueTeam={blueTeam} redTeam={redTeam} removeChampion={removeChampion} />
                 <ChampionList addChampion={addChampion} champions={champions} name={champions.name} />
             </DndProvider>
         </div>
