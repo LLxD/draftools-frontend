@@ -4,7 +4,7 @@ import { useDrag } from 'react-dnd'
 function ChampionIcon(props) {
 
     let nome = props.nome;
-    let tags = props.tags;
+    let tags = props.tags; //PLACEHOLDER
     let img = props.img;
 
     const [, drag] = useDrag(() => ({
@@ -33,7 +33,7 @@ function ChampionIcon(props) {
             <div className="d-flex flex-column justify-content-center align-items-center">
                 <h5>{nome}</h5>
                 <img src={img} alt="champion-icon" className="champion-icon" />
-                <h5>{tags}</h5>
+                <h6>{tags}</h6>
             </div>
         </div>
     )

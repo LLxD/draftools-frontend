@@ -32,8 +32,10 @@ function App() {
 
     useEffect(() => {
         if (searchString) {
-            const filtrados = champions.filter(objeto => objeto.nome === searchString)
+            const filtrados = champions.filter(objeto => objeto.title.includes(searchString))
             setSearchChampions(filtrados)
+        } else {
+            setSearchChampions(champions)
         }
     }, [searchString, champions]);
 
