@@ -1,6 +1,6 @@
 {
   "name": "draftools",
-  "version": "0.1.0",
+  "version": "]",
   "private": true,
   "dependencies": {
     "@dnd-kit/core": "^2.1.2",
@@ -39,5 +39,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/LLxD/draftools.git",
+  "author": "Israel Nunes <israel.nunes74@gmail.com>",
+  "license": "MIT"
 }
