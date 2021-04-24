@@ -11,8 +11,18 @@ const kayn = Kayn('RGAPI-4c985925-373c-456b-9e80-c6d71c812723')({
 })
 
 app.get('/champions', (req, res) => {
-    kayn.DDragon.Champion.list().then((result) => res.send(result));
+    kayn.DDragon.Champion.list().then(function(champions){
+        const champfilter = champions.data;
+        let table = [];
+        for(champion in champfilter){
+            championinfo = champfilter[champion];
+            table.push({name: championinfo.name, 
+                        tags: championinfo.tags,
+                        image: championinfo.image})
+        }
+        res.send(table)
+    });
 });
 
-app.listen(5550);
+app.listen(5540);
 
