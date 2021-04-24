@@ -18,7 +18,8 @@ app.get('/champions', (req, res) => {
             championinfo = champfilter[champion];
             table.push({name: championinfo.name, 
                         tags: championinfo.tags,
-                        image: championinfo.image})
+                        square_image:  'http://ddragon.leagueoflegends.com/cdn/11.8.1/img/champion/' + championinfo.image.full,
+                        loading_image: 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/' + championinfo.name + '_0.jpg'})
         }
         res.send(table)
     });
