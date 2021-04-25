@@ -58,13 +58,18 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
   'image': [Object]
   }
 
-#### 2. **Select champion from user**
-
-- Description: Send user selection object
-- HTTP method: POST
-- Endpoint: '/champions/champion_id'
-- Body Request Example:
-  ```json
-- Boolean 
  
+#### 2. **Receive selected champions from user**
+- Description: Receive
+- HTTP method: POST
+- Endpoint: '/result'
+- Body Request Example:
+```
+blue_team = ["Aatrox", "Anivia",...]
+red_team = ["Gragas", "Draven",...]
+```
+Answer example:
 
+```
+[bestTeam: 'blue', champion_suggestion[{name: "Aatrox",key: 120, ...},{name: "Draven",key: 130, ...}...]
+```
