@@ -5,7 +5,7 @@ The information regarding each champion is available at [DDragon](https://riot-a
 
 ## How to use
 
-When you first hop into the application, you will se two rectangles representing each team. Below that, there is a champion list with a search bar and each champion can be dragged and dropped for each team.
+When you first hop into the application, you will see two rectangles representing each team. Below that, there is a champion list with a search bar and each champion can be dragged and dropped for each team.
 As soon as you drop a champion the application will start responding which champions are the best and what are the flaws in your composition.
 
 
@@ -21,6 +21,8 @@ The backend is at port (5540) and can be seen there.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
+
+You have to start frontend and backend for the app to run locally, for that, cd into each folder and run `yarn start`.
 
 
 ### `yarn build`
@@ -47,14 +49,22 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - Description: Get champion list from riot API
 - HTTP method: GET
 - Endpoint: '/champions'
-```
-  {[
+- Response format:
+``` JSON
+  [{
   "name": "string",
-  "tags": ["string", "string"...],
+  "tags": ["string", "string"],
   "key": "string",
   "square_image" : "string",
   "loading_image" : "string"
-  ]}
+  },
+{
+  "name": "string",
+  "tags": ["string", "string"],
+  "key": "string",
+  "square_image" : "string",
+  "loading_image" : "string"
+  }]
 ```
  
 #### 2. **Receive selected champions from user**
@@ -70,8 +80,8 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ```
 - Answer example:
 
-```
-[{"bestTeam": 'blue", champion_suggestion[{"name": "Aatrox","key": 120, ...}, {"name": "Draven","key": 130, ...}]...}]
+``` JSON
+[{"bestTeam": "blue", "champion_suggestion" : [{"name": "Aatrox","key": 120,},{"name": "Draven","key": 130,}] }]
 ```
 
 
