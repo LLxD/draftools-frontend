@@ -19,7 +19,7 @@ app.get('/champions', (req, res) => {
             table.push({name: championinfo.name, 
                         tags: championinfo.tags,
                         square_image:  'http://ddragon.leagueoflegends.com/cdn/11.8.1/img/champion/' + championinfo.image.full,
-                        loading_image: 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/' + championinfo.name + '_0.jpg'})
+                        loading_image: 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/' + championinfo.id + '_0.jpg'})
         }
         res.send(table)
     });
