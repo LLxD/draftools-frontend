@@ -50,7 +50,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ```
   {[
   "name": "string",
-  "tags": ["sting", "string"...],
+  "tags": ["string", "string"...],
   "key": "string",
   "square_image" : "string",
   "loading_image" : "string"
