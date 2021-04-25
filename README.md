@@ -74,8 +74,8 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - Body Request Example:
 ``` JSON
 {
-"blue_team" : [{"name": "Aatrox","key": 120, ...}, {"name": "Draven","key": 130, ...},...],
-"red_team" : [{"name": "Gragas","key": 150, ...}, {"name": "Hecarim","key": 110, ...},...]
+"blue_team" : [{"name": "Aatrox","key": 120}, {"name": "Draven","key": 130}],
+"red_team" : [{"name": "Gragas","key": 150}, {"name": "Hecarim","key": 110}]
 } 
 ```
 - Answer example:
