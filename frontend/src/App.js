@@ -20,7 +20,6 @@ function App() {
 
     const loadChampions = () => {
         axios.get('https://5540-moccasin-clam-pfyfi3q8.ws-us03.gitpod.io/champions').then((response) => {
-            console.log(response.data)
             setChampions(response.data);
             setSearchChampions(response.data)
         });
@@ -58,10 +57,10 @@ function App() {
     const removeChampion = (index, team) => {
         switch (team) {
             case 'blue':
-                setBlueTeam(blueTeam => blueTeam.filter((_champ, i) => i !== index));
+                setBlueTeam(blueTeam => blueTeam.filter((_champ, i) => i !== Number(index)));
                 break;
             case 'red':
-                setRedTeam(redTeam => redTeam.filter((_champ, i) => i !== index));
+                setRedTeam(redTeam => redTeam.filter((_champ, i) => i !== Number(index)));
                 break;
             default:
                 break;
@@ -77,7 +76,7 @@ function App() {
                 <Teams blueTeam={blueTeam} redTeam={redTeam} removeChampion={removeChampion} />
                 <div className="container">
                     <Search searchString={searchString} setSearchString={setSearchString} />
-                    <ChampionList searchChampion={searchChampion} addChampion={addChampion} champions={champions} name={champions.name} />
+                    <ChampionList searchChampion={searchChampion} addChampion={addChampion} champions={champions} name={champions.name} key={champions.key} />
                 </div>
             </DndProvider>
         </div>
