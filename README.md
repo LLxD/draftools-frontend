@@ -1,15 +1,23 @@
-# Getting Started with Create React App
+# Draftools
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An application to help you decide which champions are the best for your League of Legends game.
+The information regarding each champion is available at [DDragon](https://riot-api-libraries.readthedocs.io/en/latest/ddragon.html) and [CommunityDragon](http://raw.communitydragon.org/) APIs.
+
+## How to use
+
+When you first hop into the application, you will se two rectangles representing each team. Below that, there is a champion list with a search bar and each champion can be dragged and dropped for each team.
+As soon as you drop a champion the application will start responding which champions are the best and what are the flaws in your composition.
+
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `yarn start`
+### `yarn start` and `yarn dev`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser the frontend.
+The backend is at port (5540) and can be seen there.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
@@ -68,8 +76,14 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 blue_team = ["Aatrox", "Anivia",...]
 red_team = ["Gragas", "Draven",...]
 ```
-Answer example:
+- Answer example:
 
 ```
 [bestTeam: 'blue', champion_suggestion[{name: "Aatrox",key: 120, ...},{name: "Draven",key: 130, ...}...]
 ```
+
+
+# Screenshots
+![screenshot1](screenshots/scr1.png)
+![screenshot2](screenshots/scr2.png)
+![screenshot3](screenshots/scr3.png)
