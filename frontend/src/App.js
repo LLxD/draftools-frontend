@@ -19,7 +19,8 @@ function App() {
     const [searchString, setSearchString] = useState("");
 
     const loadChampions = () => {
-        axios.get('https://jsonplaceholder.typicode.com/photos').then((response) => {
+        axios.get('https://5540-moccasin-clam-pfyfi3q8.ws-us03.gitpod.io/champions').then((response) => {
+            console.log(response.data)
             setChampions(response.data);
             setSearchChampions(response.data)
         });
@@ -32,7 +33,7 @@ function App() {
 
     useEffect(() => {
         if (searchString) {
-            const filtrados = champions.filter(objeto => objeto.title.includes(searchString))
+            const filtrados = champions.filter(objeto => objeto.name.toLowerCase().includes(searchString))
             setSearchChampions(filtrados)
         } else {
             setSearchChampions(champions)

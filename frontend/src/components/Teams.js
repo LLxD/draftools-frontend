@@ -37,13 +37,13 @@ function Teams({ blueTeam, redTeam, removeChampion }) {
                         <div className="row">
                             <div className="d-flex col justify-content-center align-items-center blue-side mr-3 ml-3" ref={dropBlue}>
                                 {blueTeam.map((champion, index) => (
-                                    <Champion removeChampion={removeChampion} team="blue" key={index} id={index} img={champion.img} name={champion.nome} role="Top" />
+                                    <Champion removeChampion={removeChampion} team="blue" key={index} id={index} img={champion.loading} name={champion.nome} role="Top" />
                                 ))}
                             </div>
 
                             <div className="d-flex col justify-content-center align-items-center red-side mr-3" ref={dropRed}>
                                 {redTeam.map((champion, index) => (
-                                    <Champion removeChampion={removeChampion} team="red" key={index} id={index} img={champion.img} name={champion.nome} role="Top" />
+                                    <Champion removeChampion={removeChampion} team="red" key={index} id={index} img={champion.loading} name={champion.nome} role="Top" />
                                 ))}
                             </div>
                         </div>

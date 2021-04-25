@@ -6,6 +6,7 @@ function ChampionIcon(props) {
     let nome = props.nome;
     let tags = props.tags; //PLACEHOLDER
     let img = props.img;
+    let loading = props.loading;
 
     const [, drag] = useDrag(() => ({
         type: 'CHAMPION',
@@ -13,6 +14,7 @@ function ChampionIcon(props) {
             nome,
             img,
             tags,
+            loading,
         },
 
         end: (item, monitor) => {
