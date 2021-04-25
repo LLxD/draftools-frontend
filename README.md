@@ -47,26 +47,31 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - Description: Get champion list from riot API
 - HTTP method: GET
 - Endpoint: '/champions'
-  {
-  'name': 'string',
-  'key': 'string',
-  'image': [Object]
-  }
-
+```
+  {[
+  "name": "string",
+  "tags": ["sting", "string"...],
+  "key": "string",
+  "square_image" : "string",
+  "loading_image" : "string"
+  ]}
+```
  
 #### 2. **Receive selected champions from user**
 - Description: Receive
 - HTTP method: POST
 - Endpoint: '/result'
 - Body Request Example:
-```
-blue_team = ["Aatrox", "Anivia",...]
-red_team = ["Gragas", "Draven",...]
+``` JSON
+{
+"blue_team" : [{"name": "Aatrox","key": 120, ...}, {"name": "Draven","key": 130, ...},...],
+"red_team" : [{"name": "Gragas","key": 150, ...}, {"name": "Hecarim","key": 110, ...},...]
+} 
 ```
 - Answer example:
 
 ```
-[bestTeam: 'blue', champion_suggestion[{name: "Aatrox",key: 120, ...},{name: "Draven",key: 130, ...}...]
+[{"bestTeam": 'blue", champion_suggestion[{"name": "Aatrox","key": 120, ...}, {"name": "Draven","key": 130, ...}]...}]
 ```
 
 
