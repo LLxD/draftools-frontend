@@ -81,7 +81,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - Answer example:
 
 ``` JSON
-[{"bestTeam": "blue", "champion_suggestion" : [{"name": "Aatrox","key": 120,},{"name": "Draven","key": 130,}] }]
+[{"worstTeam": "blue", "champion_suggestion" : [{"name": "Aatrox","key": 120,},{"name": "Draven","key": 130,}] }]
 ```
 
 
