@@ -15,7 +15,7 @@ function Message({ champion_suggestion, type, addChampion }) {
             <h4 className="text-dark">Sugestões de Campeões:</h4>
             <div className="container">
                 <div className="d-flex justify-content-center row border border-white rounded pb-4">
-                    <ChampionIcon addChampion={addChampion} key={champion.key} id={champion.key} nome={champion.name} tags={""} img={champion.square_image} />
+                    <ChampionIcon addChampion={addChampion} key={champion.key} id={champion.key} nome={champion.name} tags={""} loading={champion.loading_image} img={champion.square_image} />
                 </div>
                 <button className="btn btn-block" onClick={() => refresh()}><i class="fa fa-refresh"></i></button>
             </div>
