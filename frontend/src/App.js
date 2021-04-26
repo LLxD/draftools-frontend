@@ -68,6 +68,16 @@ function App() {
     };
 
 
+    useEffect(() => {
+        axios.post('https://5540-moccasin-clam-pfyfi3q8.ws-us03.gitpod.io/result', {
+            redTeam,
+            blueTeam
+        }).then((response) => {
+            console.log(response);
+        })
+
+    }, [redTeam, blueTeam])
+
 
     return (
         <div>
