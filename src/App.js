@@ -147,7 +147,7 @@ function App() {
             <Navbar />
             <DndProvider backend={HTML5Backend}>
                 <Alert champion_suggestion={champion_suggestion} type={"success"} addChampion={addChampion} />
-                <Teams blueTeam={blueTeam} redTeam={redTeam} removeChampion={removeChampion}'' />
+                <Teams blueTeam={blueTeam} redTeam={redTeam} removeChampion={removeChampion} />
                 <div className="container">
                     <Search searchString={searchString} setSearchString={setSearchString} />
                     <ChampionList searchChampion={searchChampion} addChampion={addChampion} champions={champions} name={champions.name} key={champions.key} />
