@@ -37,7 +37,6 @@ function ChampionIcon(props) {
             <div className="d-flex flex-column justify-content-center align-items-center">
                 <h5>{nome}</h5>
                 <img src={img} alt="champion-icon" className="champion-icon" />
-                <h6>{tags}</h6>
             </div>
         </div>
     )

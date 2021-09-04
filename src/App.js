@@ -18,12 +18,12 @@ function App() {
     const [champions, setChampions] = useState([]);
     const [searchChampion, setSearchChampions] = useState([]);
     const [searchString, setSearchString] = useState("");
+    const [displayAlert, setDisplayAlert] = useState("d-none");
 
     const loadChampions = () => {
-        axios.get('https://draftools.herokuapp.com/champions').then((response) => {
+        axios.get('/champions').then((response) => {
             setChampions(response.data);
             setSearchChampions(response.data)
-            console.log(response.data)
         });
     };
 
@@ -45,11 +45,11 @@ function App() {
     const addChampion = (champion, team) => {
         switch (team) {
             case 'blue':
-                setBlueTeam(blueTeam => blueTeam.length < 5 ? ([...blueTeam, champion]) : (blueTeam));
+                setBlueTeam(blueTeam => (blueTeam.length < 5 && !(blueTeam.includes(champion))) ? ([...blueTeam, champion]) : (blueTeam));
                 break;
-            case 'red':
-                setRedTeam(redTeam => redTeam.length < 5 ? ([...redTeam, champion]) : (redTeam));
-                break;
+            // case 'red':
+            //     setRedTeam(redTeam => redTeam.length < 5 ? ([...redTeam, champion]) : (redTeam));
+            //     break;
             default:
                 break;
         }
@@ -131,23 +131,23 @@ function App() {
     };
 
 
-    useEffect(() => {
-        axios.post('https://draftools.herokuapp.com/result', {
-            redTeam,
-            blueTeam
-        }).then((response) => {
-            console.log(response);
-        })
+    // useEffect(() => {
+    //     axios.post('/result', {
+    //         redTeam,
+    //         blueTeam
+    //     }).then((response) => {
+    //         console.log(response);
+    //     })
 
-    }, [redTeam, blueTeam])
+    // }, [redTeam, blueTeam])
 
 
     return (
         <div>
             <Navbar />
             <DndProvider backend={HTML5Backend}>
-                <Alert champion_suggestion={champion_suggestion} type={"success"} addChampion={addChampion} />
                 <Teams blueTeam={blueTeam} redTeam={redTeam} removeChampion={removeChampion} />
+                <Alert displayAlert={displayAlert} champion_suggestion={champion_suggestion} type={"success"} addChampion={addChampion} />
                 <div className="container">
                     <Search searchString={searchString} setSearchString={setSearchString} />
                     <ChampionList searchChampion={searchChampion} addChampion={addChampion} champions={champions} name={champions.name} key={champions.key} />

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ChampionIcon from './ChampionIcon';
 
-function Message({ champion_suggestion, type, addChampion }) {
+function Message({ champion_suggestion, type, displayAlert, addChampion, }) {
 
     const [champion, setChampion] = useState(champion_suggestion[0]);
 
@@ -11,13 +11,13 @@ function Message({ champion_suggestion, type, addChampion }) {
     };
 
     return (
-        <div className={`mt-5 alert alert-${type}`} role="alert">
+        <div className={`mt-5 alert alert-${type} ${displayAlert}`} role="alert">
             <h4 className="text-dark">Sugestões de Campeões:</h4>
             <div className="container">
                 <div className="d-flex justify-content-center row border border-white rounded pb-4">
                     <ChampionIcon addChampion={addChampion} key={champion.key} id={champion.key} nome={champion.name} tags={""} loading={champion.loading_image} img={champion.square_image} />
                 </div>
-                <button className="btn btn-block" onClick={() => refresh()}><i class="fa fa-refresh"></i></button>
+                <button className="btn btn-block" onClick={() => refresh()}><i className="fa fa-refresh"></i></button>
             </div>
         </div>
     );
