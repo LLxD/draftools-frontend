@@ -21,7 +21,7 @@ function App() {
     const [displayAlert, setDisplayAlert] = useState("d-none");
 
     const loadChampions = () => {
-        axios.get('/champions').then((response) => {
+        axios.get('https://draftools.herokuapp.com/champions').then((response) => {
             setChampions(response.data);
             setSearchChampions(response.data)
         });
