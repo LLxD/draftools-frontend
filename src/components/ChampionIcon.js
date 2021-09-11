@@ -8,6 +8,7 @@ function ChampionIcon(props) {
     let img = props.img;
     let loading = props.loading;
     let id = props.id
+    let info = props.info
 
     const [, drag] = useDrag(() => ({
         type: 'CHAMPION',
@@ -17,6 +18,7 @@ function ChampionIcon(props) {
             tags,
             loading,
             id,
+            info
         },
 
         end: (item, monitor) => {

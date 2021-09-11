@@ -31,14 +31,14 @@ function Teams({ blueTeam, redTeam, removeChampion }) {
     return (
         <>
             {/* Start: Teams */}
-            <div className="container-fluid" id="champion-select">
-                <div className="row">
+            <div className="container " id="champion-select">
+                <div className="row mr-2 ml-2">
                     <div className="col">
                         <div className="row">
-                            <div className="d-flex col justify-content-center align-items-center blue-side mx-5" ref={dropBlue}>
+                            <div className="d-flex col justify-content-center align-items-center blue-side " ref={dropBlue}>
                                 {(blueTeam.length === 0) && (<h1 className="text-white">Coloque campeões aqui!</h1>)}
                                 {blueTeam.map((champion, index) => (
-                                    <Champion removeChampion={removeChampion} position={index} team="blue" key={champion.id} index={champion.id} img={champion.loading} name={champion.nome} role="Top" />
+                                    <Champion removeChampion={removeChampion} position={index} team="blue" key={champion.id} index={champion.id} img={champion.loading} name={champion.nome}  role="Top" />
                                 ))}
                             </div>
 
