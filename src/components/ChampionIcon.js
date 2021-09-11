@@ -10,6 +10,16 @@ function ChampionIcon(props) {
     let id = props.id
     let info = props.info
 
+    
+    let champion = {
+        "nome":nome,
+        "tags":tags,
+        "img":img,
+        "loading":loading,
+        "id":id,
+        "info":info
+    }
+    
     const [, drag] = useDrag(() => ({
         type: 'CHAMPION',
         item: {
@@ -31,14 +41,14 @@ function ChampionIcon(props) {
             isDragging: monitor.isDragging()
         })
     }))
-
-
     return (
 
         <div className="col-2 mt-4" ref={drag}>
             <div className="d-flex flex-column justify-content-center align-items-center">
+                <button style={{background:"none",border:"none"}} onClick={() => props.addChampion(champion, "blue")}>
                 <h5>{nome}</h5>
                 <img src={img} alt="champion-icon" className="champion-icon" />
+                </button>
             </div>
         </div>
     )

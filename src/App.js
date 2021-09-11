@@ -15,8 +15,7 @@ function App() {
   const [searchChampion, setSearchChampions] = useState([]);
   const [searchString, setSearchString] = useState("");
   const [displayAlert, setDisplayAlert] = useState("d-none");
-  const [compAnalysis, setCompAnalysis] = useState("");
-  const [compType, setCompType] = useState("");
+  const [response, setResponse] = useState([]);
 
   const loadChampions = () => {
     axios.get("https://draftools.herokuapp.com/champions").then((response) => {
@@ -57,63 +56,6 @@ function App() {
     }
   };
 
-  const champion_suggestion = [
-    {
-      name: "Aatrox",
-      tags: ["Fighter", "Tank"],
-      key: "266",
-      square_image:
-        "http://ddragon.leagueoflegends.com/cdn/11.8.1/img/champion/Aatrox.png",
-      loading_image:
-        "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_0.jpg",
-    },
-    {
-      name: "Ahri",
-      tags: ["Mage", "Assassin"],
-      key: "103",
-      square_image:
-        "http://ddragon.leagueoflegends.com/cdn/11.8.1/img/champion/Ahri.png",
-      loading_image:
-        "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Ahri_0.jpg",
-    },
-    {
-      name: "Akali",
-      tags: ["Assassin"],
-      key: "84",
-      square_image:
-        "http://ddragon.leagueoflegends.com/cdn/11.8.1/img/champion/Akali.png",
-      loading_image:
-        "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Akali_0.jpg",
-    },
-    {
-      name: "Alistar",
-      tags: ["Tank", "Support"],
-      key: "12",
-      square_image:
-        "http://ddragon.leagueoflegends.com/cdn/11.8.1/img/champion/Alistar.png",
-      loading_image:
-        "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Alistar_0.jpg",
-    },
-    {
-      name: "Amumu",
-      tags: ["Tank", "Mage"],
-      key: "32",
-      square_image:
-        "http://ddragon.leagueoflegends.com/cdn/11.8.1/img/champion/Amumu.png",
-      loading_image:
-        "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Amumu_0.jpg",
-    },
-    {
-      name: "Anivia",
-      tags: ["Mage", "Support"],
-      key: "34",
-      square_image:
-        "http://ddragon.leagueoflegends.com/cdn/11.8.1/img/champion/Anivia.png",
-      loading_image:
-        "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Anivia_0.jpg",
-    },
-  ];
-
   const removeChampion = (index, team) => {
     switch (team) {
       case "blue":
@@ -137,24 +79,34 @@ function App() {
         .post("https://draftools.herokuapp.com/result", blueTeam)
         .then((response) => {
           setDisplayAlert("");
-          setCompAnalysis(response.data[0]);
-          setCompType(response.data[1]);
+          setResponse(response.data);
         });
     } else {
       setDisplayAlert("d-none");
     }
-  }, [blueTeam]);
+  }, [blueTeam, response]);
 
   return (
     <div>
       <Navbar />
-      <Alert
-        displayAlert={displayAlert}
-        champion_suggestion={champion_suggestion}
-        addChampion={addChampion}
-        compAnalysis={compAnalysis}
-        compType={compType}
-      />
+      {response.length !== 0 && (
+        <>
+          <Alert
+            title={"Feedback de Composição:"}
+            displayAlert={displayAlert}
+            addChampion={addChampion}
+            floatPosition={"left"}
+            response={response}
+          />
+          <Alert
+            title={"Atributos atuais:"}
+            displayAlert={displayAlert}
+            addChampion={addChampion}
+            floatPosition={"right"}
+            response={response}
+          />
+        </>
+      )}
       <DndProvider backend={HTML5Backend}>
         <Teams
           blueTeam={blueTeam}
@@ -170,7 +122,6 @@ function App() {
             searchChampion={searchChampion}
             addChampion={addChampion}
             champions={champions}
-            name={champions.name}
             key={champions.key}
           />
         </div>
