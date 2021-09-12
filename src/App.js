@@ -31,7 +31,7 @@ function App() {
   useEffect(() => {
     if (searchString) {
       const filtrados = champions.filter((objeto) =>
-        objeto.name.toLowerCase().includes(searchString)
+        objeto.name.toLowerCase().includes(searchString.toLowerCase())
       );
       setSearchChampions(filtrados);
     } else {
