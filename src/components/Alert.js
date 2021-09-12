@@ -19,8 +19,8 @@ function Message({
     setCompAnalysis(response[0]);
     setCompType(response[1]);
     setAttackSum(response[2]);
-    setMagicSum(response[3]);
-    setDefenseSum(response[4]);
+    setDefenseSum(response[3]);
+    setMagicSum(response[4]);
   }, [response]);
 
   // const [champion, setChampion] = useState(champion_suggestion[0]);
