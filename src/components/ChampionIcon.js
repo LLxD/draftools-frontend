@@ -21,7 +21,6 @@ function ChampionIcon(props) {
 
 
     return (
-
         <div className="col-lg-2 col-6 mt-4">
             <div className="d-flex flex-column justify-content-center align-items-center">
                 <button className="hidden-button" onClick={() => {props.addChampion(champion, blueTeam)}}>

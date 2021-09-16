@@ -10,7 +10,7 @@ function Teams({ blueTeam, removeChampion, transition }) {
         <>
             {/* Start: Teams */}
             <div className="container p-0" id="champion-select">
-                <div className="row mx-0 lg:mx-2">
+                <div className="row mx-0 mx-lg-2">
                     <div className="col">
                         <div className="row">
                             <div className={`d-flex col justify-content-center align-items-center blue-side ${transition}`}>
