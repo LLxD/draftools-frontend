@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import ChampionIcon from "./ChampionIcon";
+// import ChampionIcon from "./ChampionIcon";
 
 function Message({
-  champion_suggestion,
+  // champion_suggestion,
   title,
   displayAlert,
   floatPosition,
-  addChampion,
+  // addChampion,
   response,
 }) {
   const [compAnalysis, setCompAnalysis] = useState("");

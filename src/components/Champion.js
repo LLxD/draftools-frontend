@@ -5,9 +5,10 @@ const Champion = (props) => {
         <>
             {/* Start: Champion */}
             <div className="mr-3 ml-3">
-                <button onClick={() => props.removeChampion(props.position, props.team)} className="btn remove-champion text-white fa fa-times" type="button"></button>
+                <button className="hidden-button" onClick={() => props.removeChampion(props.position, props.team)} type="button">
                 <img className="champion" src={props.img} alt="champion img" />
                 <h1 className="text-center text-white">{props.name}</h1>
+                </button>
             </div>
             {/* End: Champion */}
         </>

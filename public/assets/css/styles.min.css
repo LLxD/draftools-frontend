@@ -8,7 +8,7 @@ body {
   width: 200px;
 }
 .blue-side {
-  background: #000835;
+  background: rgb(0, 179, 173, 0.6);
   padding: 15px 0;
   transition: 1s;
   min-width: 400px;
@@ -63,7 +63,7 @@ p {
 .champion-icon {
   width: 80px;
   height: 80px;
-  cursor: grab;
+  cursor: pointer;
 }
 
 .red-side:hover {
@@ -71,7 +71,32 @@ p {
   transition: 1s;
 }
 
-.blue-side:hover {
-  background-color: #021a9b;
+.blue-side-transition-20 {
+  background-color: rgb(0, 179, 173, 0.6);
   transition: 1s;
+}
+.blue-side-transition-40 {
+  background-color: rgb(0, 179, 173, 0.7);
+  transition: 1s;
+}
+.blue-side-transition-60 {
+  background-color: rgb(0, 179, 173, 0.8);
+  transition: 1s;
+}
+.blue-side-transition-80 {
+  background-color: rgb(0, 179, 173, 0.9);
+  transition: 1s;
+}
+.blue-side-transition-100 {
+  background-color: rgb(0, 179, 173, 1);
+  transition: 1s;
+}
+
+.text-primary {
+  color: #00b3ac !important;
+}
+
+.hidden-button {
+  background: none;
+  border: none;
 }
