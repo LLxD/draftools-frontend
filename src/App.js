@@ -16,6 +16,7 @@ function App() {
   const [searchString, setSearchString] = useState("");
   const [displayAlert, setDisplayAlert] = useState("d-none");
   const [response, setResponse] = useState([]);
+  const [transition, setTransition] = useState("");
 
   const loadChampions = () => {
     axios.get("https://draftools.herokuapp.com/champions").then((response) => {
@@ -40,21 +41,11 @@ function App() {
   }, [searchString, champions]);
 
   const addChampion = (champion, team) => {
-    switch (team) {
-      case "blue":
-        setBlueTeam((blueTeam) =>
-          blueTeam.length < 5 && !blueTeam.includes(champion)
-            ? [...blueTeam, champion]
-            : blueTeam
-        );
-        break;
-      // case 'red':
-      //     setRedTeam(redTeam => redTeam.length < 5 ? ([...redTeam, champion]) : (redTeam));
-      //     break;
-      default:
-        break;
+    if(team.length < 5 && !team.includes(champion)){
+      setBlueTeam([...team, champion])
     }
-  };
+    }
+  
 
   const removeChampion = (index, team) => {
     switch (team) {
@@ -81,6 +72,7 @@ function App() {
           setDisplayAlert("");
           setResponse(response.data);
         });
+        setTransition("blue-side-transition-"+ blueTeam.length/5*100)
     } else {
       setDisplayAlert("d-none");
     }
@@ -112,6 +104,7 @@ function App() {
           blueTeam={blueTeam}
           redTeam={redTeam}
           removeChampion={removeChampion}
+          transition={transition}
         />
         <div className="container">
           <Search
@@ -123,6 +116,7 @@ function App() {
             addChampion={addChampion}
             champions={champions}
             key={champions.key}
+            blueTeam={blueTeam}
           />
         </div>
       </DndProvider>
