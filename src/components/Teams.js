@@ -2,7 +2,7 @@ import Champion from "./Champion";
 import { useDrop } from 'react-dnd';
 
 
-function Teams({ blueTeam, redTeam, removeChampion }) {
+function Teams({ blueTeam, redTeam, removeChampion, transition }) {
 
 
     // const [, dropRed] = useDrop({
@@ -35,7 +35,7 @@ function Teams({ blueTeam, redTeam, removeChampion }) {
                 <div className="row mr-2 ml-2">
                     <div className="col">
                         <div className="row">
-                            <div className="d-flex col justify-content-center align-items-center blue-side " ref={dropBlue}>
+                            <div className={`d-flex col justify-content-center align-items-center blue-side ${transition}`} ref={dropBlue}>
                                 {(blueTeam.length === 0) && (<h1 className="text-white">Coloque campeões aqui!</h1>)}
                                 {blueTeam.map((champion, index) => (
                                     <Champion removeChampion={removeChampion} position={index} team="blue" key={champion.id} index={champion.id} img={champion.loading} name={champion.nome}  role="Top" />
