@@ -9,12 +9,12 @@ function ChampionIcon(props) {
     let loading = props.loading;
     let id = props.id
     let info = props.info
-
+    let blueTeam = props.blueTeam
     
     let champion = {
         "nome":nome,
-        "tags":tags,
         "img":img,
+        "tags":tags,
         "loading":loading,
         "id":id,
         "info":info
@@ -41,11 +41,12 @@ function ChampionIcon(props) {
             isDragging: monitor.isDragging()
         })
     }))
+
     return (
 
         <div className="col-2 mt-4" ref={drag}>
             <div className="d-flex flex-column justify-content-center align-items-center">
-                <button style={{background:"none",border:"none"}} onClick={() => props.addChampion(champion, "blue")}>
+                <button className="hidden-button" onClick={() => {props.addChampion(champion, blueTeam)}}>
                 <h5>{nome}</h5>
                 <img src={img} alt="champion-icon" className="champion-icon" />
                 </button>
