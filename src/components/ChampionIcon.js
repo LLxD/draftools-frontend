@@ -1,5 +1,4 @@
 import React from 'react'
-import { useDrag } from 'react-dnd'
 
 function ChampionIcon(props) {
 
@@ -19,32 +18,11 @@ function ChampionIcon(props) {
         "id":id,
         "info":info
     }
-    
-    const [, drag] = useDrag(() => ({
-        type: 'CHAMPION',
-        item: {
-            nome,
-            img,
-            tags,
-            loading,
-            id,
-            info
-        },
 
-        end: (item, monitor) => {
-            const dropResult = monitor.getDropResult();
-            if (item && dropResult) {
-                props.addChampion(item, dropResult.target);
-            }
-        },
-        collect: (monitor) => ({
-            isDragging: monitor.isDragging()
-        })
-    }))
 
     return (
 
-        <div className="col-2 mt-4" ref={drag}>
+        <div className="lg:col-2 col-6 mt-4">
             <div className="d-flex flex-column justify-content-center align-items-center">
                 <button className="hidden-button" onClick={() => {props.addChampion(champion, blueTeam)}}>
                 <h5>{nome}</h5>

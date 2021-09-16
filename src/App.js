@@ -3,8 +3,6 @@ import Teams from "./components/Teams";
 import ChampionList from "./components/ChampionList";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
 import Search from "./components/Search";
 import Alert from "./components/Alert";
 
@@ -41,7 +39,7 @@ function App() {
   }, [searchString, champions]);
 
   const addChampion = (champion, team) => {
-    if(team.length < 5 && !team.includes(champion)){
+    if(team.length < 5 && !team.some(champ => champ.nome === champion.nome)){
       setBlueTeam([...team, champion])
     }
     }
@@ -99,7 +97,6 @@ function App() {
           />
         </>
       )}
-      <DndProvider backend={HTML5Backend}>
         <Teams
           blueTeam={blueTeam}
           redTeam={redTeam}
@@ -119,7 +116,6 @@ function App() {
             blueTeam={blueTeam}
           />
         </div>
-      </DndProvider>
     </div>
   );
 }
